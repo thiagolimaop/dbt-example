@@ -1,0 +1,61 @@
+version: 2
+
+sources:
+  - name: northwind
+    description: Source data containing customer orders and shipping information.
+
+    schema: dbt_dw_seeds
+    loader: bigquery
+
+    tables:
+      - name: orders
+        description: Contains order-level information, including customers,
+          employees, order dates, shipping details, freight costs,
+          and delivery requirements.
+
+        columns:
+          - name: customer_id
+            description: Unique identifier of the customer associated with the order.
+
+          - name: employee_id
+            description: Identifier of the employee responsible for the order.
+
+          - name: freight
+            description: Shipping freight cost associated with the order.
+
+          - name: order_date
+            description: Date when the order was placed.
+
+          - name: order_id
+            tests:
+              - unique
+              - not_null
+            description: Unique identifier of the order.
+
+          - name: required_date
+            description: Date by which the customer requested the order to be delivered.
+
+          - name: ship_address
+            description: Address where the order was shipped.
+
+          - name: ship_city
+            description: City where the order was shipped.
+
+          - name: ship_country
+            description: Country where the order was shipped.
+
+          - name: ship_name
+            description: Name of the recipient or shipping location.
+
+          - name: ship_postal_code
+            description: Postal code of the shipping destination.
+
+          - name: ship_region
+            description: Region, state, or province of the shipping destination.
+
+          - name: ship_via
+            description: Identifier of the shipping company or carrier used
+              to deliver the order.
+
+          - name: shipped_date
+            description: Date when the order was shipped.
