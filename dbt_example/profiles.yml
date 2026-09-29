@@ -4,7 +4,7 @@ dbt_example:
     dev:
       dataset: "{{ env_var('DBT_DBNAME', 'dbt_dw') }}"
       method: service-account
-      project: 'personalproject-509914'
+      project: "{{ env_var('PROJECT_NAME', '') }}"
       threads: 4
       type: bigquery
-      keyfile: '/home/thiago/.dbt/personalproject-509914-53ea18c9006f.json'
+      keyfile: "{{ env_var('FILE_PATH', '') }}"
