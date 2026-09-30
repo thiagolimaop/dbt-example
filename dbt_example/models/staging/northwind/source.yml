@@ -27,7 +27,7 @@ sources:
             description: Date when the order was placed.
 
           - name: order_id
-            tests:
+            data_tests:
               - unique
               - not_null
             description: Unique identifier of the order.

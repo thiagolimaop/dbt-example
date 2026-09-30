@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Sales fact table from the company"
+
+    columns:
+      - name: month
+        description: "Sales month"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: 
+                  - jan
+                  - feb
+                  - mar
+                  - apr
+                  - may
+                  - jun
+                  - jul
+                  - aug
+                  - sep
+                  - oct
+                  - nov
+                  - dec
+
+      - name: year
+        description: "Sales Year"
+
+      - name: total_freight
+        description: "Total freight for the sales"
+        data_tests:
+          - not_null
